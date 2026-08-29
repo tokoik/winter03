@@ -1,13 +1,14 @@
-/*
+﻿/*
 ** Alias OBJ 形式データ
 */
 #ifndef OBJ_H
 #define OBJ_H
 
-#if defined(WIN32)
-#  include "glew.h"
+#if defined(_WIN32)
+#  include <GL/glew.h>
 #  include <GL/gl.h>
 #elif defined(__APPLE__) || defined(MACOSX)
+#  define GL_SILENCE_DEPRECATION
 #  include <OpenGL/gl.h>
 #else
 #  define GL_GLEXT_PROTOTYPES

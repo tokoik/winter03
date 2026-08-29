@@ -1,17 +1,21 @@
-#include <cstdio>
-#include <cstdlib>
-#include <cmath>
-#if defined(WIN32)
-//#  pragma comment(linker, "/subsystem:\"windows\" /entry:\"mainCRTStartup\"")
-#  pragma comment(lib, "glew32.lib")
-#  include "glew.h"
-#  include "glut.h"
+﻿//
+// main.cpp
+//
+#if defined(_WIN32)
+#  define _USE_MATH_DEFINES
+#  define _CRT_SECURE_NO_WARNINGS
+#  include <GL/glew.h>
+#  include <GL/glut.h>
 #elif defined(__APPLE__) || defined(MACOSX)
+#  define GL_SILENCE_DEPRECATION
 #  include <GLUT/glut.h>
 #else
 #  define GL_GLEXT_PROTOTYPES
 #  include <GL/glut.h>
 #endif
+#include <cstdio>
+#include <cstdlib>
+#include <cmath>
 
 /*
 ** 形状データ
@@ -292,7 +296,7 @@ static void cleanup(void)
 */
 static void init(void)
 {
-#if defined(WIN32)
+#if defined(_WIN32)
   /* GLEW の初期化 */
   GLenum err = glewInit();
   if (err != GLEW_OK) {

@@ -1,14 +1,18 @@
+﻿//
+// Obj.cpp
+//
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
 #include <cstring>
 #include <cmath>
-
-#if defined(WIN32)
-#  pragma warning(disable:4996)
-#  include "glew.h"
+#if defined(_WIN32)
+#  define _USE_MATH_DEFINES
+#  define _CRT_SECURE_NO_WARNINGS
+#  include <GL/glew.h>
 #  include <GL/gl.h>
 #elif defined(__APPLE__) || defined(MACOSX)
+#  define GL_SILENCE_DEPRECATION
 #  include <OpenGL/gl.h>
 #else
 #  define GL_GLEXT_PROTOTYPES

@@ -1,18 +1,22 @@
+﻿//
+// shadersource.cpp
+//
 /*
 ** シェーダのソースプログラムの読み込み
 */
-#include <stdio.h>
-#include <stdlib.h>
-#if defined(WIN32)
-#  pragma warning(disable: 4996)
-#  include "glew.h"
-#  include <GL/gl.h>
+#if defined(_WIN32)
+#  define _USE_MATH_DEFINES
+#  define _CRT_SECURE_NO_WARNINGS
+#  include <GL/glew.h>
 #elif defined(__APPLE__) || defined(MACOSX)
+#  define GL_SILENCE_DEPRECATION
 #  include <OpenGL/gl.h>
 #else
 #  define GL_GLEXT_PROTOTYPES
 #  include <GL/gl.h>
 #endif
+#include <cstdio>
+#include <cstdlib>
 
 #include "shadersource.h"
 
